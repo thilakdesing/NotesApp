@@ -1,5 +1,6 @@
 Video Demo:
-	https://youtu.be/72PYnaAZ5R0
+	Video demonstration of Notes app - https://youtu.be/72PYnaAZ5R0
+
 Technical summary:
 
 	1. User can input data into the notes , namely TITLE and CONTENT.On clicking add notes, ajax call is made to generate a new id for the note.
