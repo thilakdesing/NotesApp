@@ -1,0 +1,231 @@
+12/22/2017 09:56:37 PM received <QueryDict: {}>
+12/22/2017 09:56:37 PM Executing query select * from notes_master where status=1 order by created_datetime desc
+12/22/2017 09:56:37 PM Query Result ()
+12/22/2017 09:56:40 PM received <QueryDict: {}>
+12/22/2017 09:56:40 PM Executing query insert into notes_master (note_title,note_content,created_datetime,modified_datetime) values ('NOTE TITLE','',now(),now())
+12/22/2017 09:56:40 PM Query Result ()
+12/22/2017 09:57:02 PM POST received <QueryDict: {u'note_id': [u'242'], u'note_title': [u'NOTE TITLE'], u'note_content': [u'Attempt 1. Waiting for auto save on top right']}>
+12/22/2017 09:57:02 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=242
+12/22/2017 09:57:02 PM Query Result ()
+12/22/2017 09:57:02 PM Executing query update notes_master SET note_title='NOTE TITLE',note_content='Attempt 1. Waiting for auto save on top right',modified_datetime=now() where note_id='242'
+12/22/2017 09:57:02 PM Query Result ()
+12/22/2017 09:57:02 PM received <QueryDict: {u'note_id': [u'242']}>
+12/22/2017 09:57:02 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=242 order by             created_datetime desc 
+12/22/2017 09:57:02 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 26, 40), 'note_history_id': 392L},)
+12/22/2017 09:57:02 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:26:40', 'note_history_id': 392L}]
+12/22/2017 09:57:17 PM POST received <QueryDict: {u'note_id': [u'242'], u'note_title': [u'NOTE TITLE'], u'note_content': [u'Attempt 1. Waiting for auto save on top right.\nAttempt 2.']}>
+12/22/2017 09:57:17 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=242
+12/22/2017 09:57:17 PM Query Result ()
+12/22/2017 09:57:17 PM Executing query update notes_master SET note_title='NOTE TITLE',note_content='Attempt 1. Waiting for auto save on top right.
+Attempt 2.',modified_datetime=now() where note_id='242'
+12/22/2017 09:57:17 PM Query Result ()
+12/22/2017 09:57:17 PM received <QueryDict: {u'note_id': [u'242']}>
+12/22/2017 09:57:17 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=242 order by             created_datetime desc 
+12/22/2017 09:57:17 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 2), 'note_history_id': 393L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 26, 40), 'note_history_id': 392L})
+12/22/2017 09:57:17 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:27:02', 'note_history_id': 393L}, {'created_datetime': '2017-12-23 03:26:40', 'note_history_id': 392L}]
+12/22/2017 09:57:18 PM POST received <QueryDict: {u'note_id': [u'242'], u'note_title': [u'NOTE TITLE'], u'note_content': [u'Attempt 1. Waiting for auto save on top right.\nAttempt 2.']}>
+12/22/2017 09:57:18 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=242
+12/22/2017 09:57:18 PM Query Result ()
+12/22/2017 09:57:18 PM Executing query update notes_master SET note_title='NOTE TITLE',note_content='Attempt 1. Waiting for auto save on top right.
+Attempt 2.',modified_datetime=now() where note_id='242'
+12/22/2017 09:57:18 PM Query Result ()
+12/22/2017 09:57:18 PM received <QueryDict: {u'note_id': [u'242']}>
+12/22/2017 09:57:18 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=242 order by             created_datetime desc 
+12/22/2017 09:57:18 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 17), 'note_history_id': 394L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 2), 'note_history_id': 393L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 26, 40), 'note_history_id': 392L})
+12/22/2017 09:57:18 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:27:17', 'note_history_id': 394L}, {'created_datetime': '2017-12-23 03:27:02', 'note_history_id': 393L}, {'created_datetime': '2017-12-23 03:26:40', 'note_history_id': 392L}]
+12/22/2017 09:57:31 PM POST received <QueryDict: {u'note_id': [u'242'], u'note_title': [u'NOTE TITLE'], u'note_content': [u'Attempt 1. Waiting for auto save on top right.\nAttempt 2.\nAttempt 3. Creating new note']}>
+12/22/2017 09:57:31 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=242
+12/22/2017 09:57:31 PM Query Result ()
+12/22/2017 09:57:31 PM Executing query update notes_master SET note_title='NOTE TITLE',note_content='Attempt 1. Waiting for auto save on top right.
+Attempt 2.
+Attempt 3. Creating new note',modified_datetime=now() where note_id='242'
+12/22/2017 09:57:31 PM Query Result ()
+12/22/2017 09:57:31 PM received <QueryDict: {u'note_id': [u'242']}>
+12/22/2017 09:57:31 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=242 order by             created_datetime desc 
+12/22/2017 09:57:31 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 18), 'note_history_id': 395L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 17), 'note_history_id': 394L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 2), 'note_history_id': 393L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 26, 40), 'note_history_id': 392L})
+12/22/2017 09:57:31 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:27:18', 'note_history_id': 395L}, {'created_datetime': '2017-12-23 03:27:17', 'note_history_id': 394L}, {'created_datetime': '2017-12-23 03:27:02', 'note_history_id': 393L}, {'created_datetime': '2017-12-23 03:26:40', 'note_history_id': 392L}]
+12/22/2017 09:57:31 PM received <QueryDict: {}>
+12/22/2017 09:57:31 PM Executing query insert into notes_master (note_title,note_content,created_datetime,modified_datetime) values ('NOTE TITLE','',now(),now())
+12/22/2017 09:57:31 PM Query Result ()
+12/22/2017 09:57:34 PM POST received <QueryDict: {u'note_id': [u'242'], u'note_title': [u'NOTE TITLE'], u'note_content': [u'Attempt 1. Waiting for auto save on top right.\nAttempt 2.\nAttempt 3. Creating new note']}>
+12/22/2017 09:57:34 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=242
+12/22/2017 09:57:34 PM Query Result ()
+12/22/2017 09:57:34 PM Executing query update notes_master SET note_title='NOTE TITLE',note_content='Attempt 1. Waiting for auto save on top right.
+Attempt 2.
+Attempt 3. Creating new note',modified_datetime=now() where note_id='242'
+12/22/2017 09:57:34 PM Query Result ()
+12/22/2017 09:57:34 PM received <QueryDict: {u'note_id': [u'242']}>
+12/22/2017 09:57:34 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=242 order by             created_datetime desc 
+12/22/2017 09:57:34 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 31), 'note_history_id': 396L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 18), 'note_history_id': 395L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 17), 'note_history_id': 394L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 2), 'note_history_id': 393L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 26, 40), 'note_history_id': 392L})
+12/22/2017 09:57:34 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:27:31', 'note_history_id': 396L}, {'created_datetime': '2017-12-23 03:27:18', 'note_history_id': 395L}, {'created_datetime': '2017-12-23 03:27:17', 'note_history_id': 394L}, {'created_datetime': '2017-12-23 03:27:02', 'note_history_id': 393L}, {'created_datetime': '2017-12-23 03:26:40', 'note_history_id': 392L}]
+12/22/2017 09:57:46 PM POST received <QueryDict: {u'note_id': [u'243'], u'note_title': [u'NOTE TITLE'], u'note_content': [u'2nd notes content. Attempt 1']}>
+12/22/2017 09:57:46 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=243
+12/22/2017 09:57:46 PM Query Result ()
+12/22/2017 09:57:46 PM Executing query update notes_master SET note_title='NOTE TITLE',note_content='2nd notes content. Attempt 1',modified_datetime=now() where note_id='243'
+12/22/2017 09:57:46 PM Query Result ()
+12/22/2017 09:57:46 PM received <QueryDict: {u'note_id': [u'243']}>
+12/22/2017 09:57:46 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=243 order by             created_datetime desc 
+12/22/2017 09:57:46 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 31), 'note_history_id': 397L},)
+12/22/2017 09:57:46 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:27:31', 'note_history_id': 397L}]
+12/22/2017 09:57:56 PM POST received <QueryDict: {u'note_id': [u'243'], u'note_title': [u'NOTE TITLE'], u'note_content': [u'2nd notes content. Attempt 1. Now attempt 2.']}>
+12/22/2017 09:57:56 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=243
+12/22/2017 09:57:56 PM Query Result ()
+12/22/2017 09:57:56 PM Executing query update notes_master SET note_title='NOTE TITLE',note_content='2nd notes content. Attempt 1. Now attempt 2.',modified_datetime=now() where note_id='243'
+12/22/2017 09:57:56 PM Query Result ()
+12/22/2017 09:57:56 PM received <QueryDict: {u'note_id': [u'243']}>
+12/22/2017 09:57:56 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=243 order by             created_datetime desc 
+12/22/2017 09:57:56 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 46), 'note_history_id': 398L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 31), 'note_history_id': 397L})
+12/22/2017 09:57:56 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:27:46', 'note_history_id': 398L}, {'created_datetime': '2017-12-23 03:27:31', 'note_history_id': 397L}]
+12/22/2017 09:57:58 PM POST received <QueryDict: {u'note_id': [u'243'], u'note_title': [u'NOTE TITLE'], u'note_content': [u'2nd notes content. Attempt 1. Now attempt 2.']}>
+12/22/2017 09:57:58 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=243
+12/22/2017 09:57:58 PM Query Result ()
+12/22/2017 09:57:58 PM Executing query update notes_master SET note_title='NOTE TITLE',note_content='2nd notes content. Attempt 1. Now attempt 2.',modified_datetime=now() where note_id='243'
+12/22/2017 09:57:58 PM Query Result ()
+12/22/2017 09:57:58 PM received <QueryDict: {u'note_id': [u'243']}>
+12/22/2017 09:57:58 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=243 order by             created_datetime desc 
+12/22/2017 09:57:58 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 56), 'note_history_id': 399L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 46), 'note_history_id': 398L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 31), 'note_history_id': 397L})
+12/22/2017 09:57:58 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:27:56', 'note_history_id': 399L}, {'created_datetime': '2017-12-23 03:27:46', 'note_history_id': 398L}, {'created_datetime': '2017-12-23 03:27:31', 'note_history_id': 397L}]
+12/22/2017 09:58:00 PM received <QueryDict: {u'note_id': [u'242']}>
+12/22/2017 09:58:00 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=242 order by             created_datetime desc 
+12/22/2017 09:58:00 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 31), 'note_history_id': 396L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 18), 'note_history_id': 395L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 17), 'note_history_id': 394L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 2), 'note_history_id': 393L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 26, 40), 'note_history_id': 392L})
+12/22/2017 09:58:00 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:27:31', 'note_history_id': 396L}, {'created_datetime': '2017-12-23 03:27:18', 'note_history_id': 395L}, {'created_datetime': '2017-12-23 03:27:17', 'note_history_id': 394L}, {'created_datetime': '2017-12-23 03:27:02', 'note_history_id': 393L}, {'created_datetime': '2017-12-23 03:26:40', 'note_history_id': 392L}]
+12/22/2017 09:58:04 PM received <QueryDict: {u'note_history_id': [u'392']}>
+12/22/2017 09:58:04 PM Executing query select note_title,note_content from notes_master_history where note_history_id=392
+12/22/2017 09:58:04 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': ''},)
+12/22/2017 09:58:04 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': ''}]
+12/22/2017 09:58:06 PM received <QueryDict: {u'note_history_id': [u'393']}>
+12/22/2017 09:58:06 PM Executing query select note_title,note_content from notes_master_history where note_history_id=393
+12/22/2017 09:58:06 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right'},)
+12/22/2017 09:58:06 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right'}]
+12/22/2017 09:58:09 PM received <QueryDict: {u'note_history_id': [u'394']}>
+12/22/2017 09:58:09 PM Executing query select note_title,note_content from notes_master_history where note_history_id=394
+12/22/2017 09:58:09 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.'},)
+12/22/2017 09:58:09 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.'}]
+12/22/2017 09:58:11 PM received <QueryDict: {u'note_history_id': [u'395']}>
+12/22/2017 09:58:11 PM Executing query select note_title,note_content from notes_master_history where note_history_id=395
+12/22/2017 09:58:11 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.'},)
+12/22/2017 09:58:11 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.'}]
+12/22/2017 09:58:13 PM received <QueryDict: {u'note_history_id': [u'396']}>
+12/22/2017 09:58:13 PM Executing query select note_title,note_content from notes_master_history where note_history_id=396
+12/22/2017 09:58:13 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.\nAttempt 3. Creating new note'},)
+12/22/2017 09:58:13 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.\nAttempt 3. Creating new note'}]
+12/22/2017 09:58:38 PM POST received <QueryDict: {u'note_id': [u'242'], u'note_title': [u'NOTE TITLE'], u'note_content': [u'Making changes on top of history.Lets see if this gets traced in version']}>
+12/22/2017 09:58:38 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=242
+12/22/2017 09:58:38 PM Query Result ()
+12/22/2017 09:58:38 PM Executing query update notes_master SET note_title='NOTE TITLE',note_content='Making changes on top of history.Lets see if this gets traced in version',modified_datetime=now() where note_id='242'
+12/22/2017 09:58:38 PM Query Result ()
+12/22/2017 09:58:38 PM received <QueryDict: {u'note_id': [u'242']}>
+12/22/2017 09:58:38 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=242 order by             created_datetime desc 
+12/22/2017 09:58:38 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 34), 'note_history_id': 400L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 31), 'note_history_id': 396L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 18), 'note_history_id': 395L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 17), 'note_history_id': 394L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 2), 'note_history_id': 393L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 26, 40), 'note_history_id': 392L})
+12/22/2017 09:58:38 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:27:34', 'note_history_id': 400L}, {'created_datetime': '2017-12-23 03:27:31', 'note_history_id': 396L}, {'created_datetime': '2017-12-23 03:27:18', 'note_history_id': 395L}, {'created_datetime': '2017-12-23 03:27:17', 'note_history_id': 394L}, {'created_datetime': '2017-12-23 03:27:02', 'note_history_id': 393L}, {'created_datetime': '2017-12-23 03:26:40', 'note_history_id': 392L}]
+12/22/2017 09:58:41 PM POST received <QueryDict: {u'note_id': [u'242'], u'note_title': [u'NOTE TITLE'], u'note_content': [u'Making changes on top of history.Lets see if this gets traced in version']}>
+12/22/2017 09:58:41 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=242
+12/22/2017 09:58:41 PM Query Result ()
+12/22/2017 09:58:41 PM Executing query update notes_master SET note_title='NOTE TITLE',note_content='Making changes on top of history.Lets see if this gets traced in version',modified_datetime=now() where note_id='242'
+12/22/2017 09:58:41 PM Query Result ()
+12/22/2017 09:58:41 PM received <QueryDict: {u'note_id': [u'242']}>
+12/22/2017 09:58:41 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=242 order by             created_datetime desc 
+12/22/2017 09:58:41 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 28, 38), 'note_history_id': 401L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 34), 'note_history_id': 400L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 31), 'note_history_id': 396L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 18), 'note_history_id': 395L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 17), 'note_history_id': 394L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 27, 2), 'note_history_id': 393L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 26, 40), 'note_history_id': 392L})
+12/22/2017 09:58:41 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:28:38', 'note_history_id': 401L}, {'created_datetime': '2017-12-23 03:27:34', 'note_history_id': 400L}, {'created_datetime': '2017-12-23 03:27:31', 'note_history_id': 396L}, {'created_datetime': '2017-12-23 03:27:18', 'note_history_id': 395L}, {'created_datetime': '2017-12-23 03:27:17', 'note_history_id': 394L}, {'created_datetime': '2017-12-23 03:27:02', 'note_history_id': 393L}, {'created_datetime': '2017-12-23 03:26:40', 'note_history_id': 392L}]
+12/22/2017 09:58:42 PM received <QueryDict: {u'note_history_id': [u'401']}>
+12/22/2017 09:58:42 PM Executing query select note_title,note_content from notes_master_history where note_history_id=401
+12/22/2017 09:58:42 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': 'Making changes on top of history.Lets see if this gets traced in version'},)
+12/22/2017 09:58:42 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': 'Making changes on top of history.Lets see if this gets traced in version'}]
+12/22/2017 09:58:44 PM received <QueryDict: {u'note_history_id': [u'392']}>
+12/22/2017 09:58:44 PM Executing query select note_title,note_content from notes_master_history where note_history_id=392
+12/22/2017 09:58:44 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': ''},)
+12/22/2017 09:58:44 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': ''}]
+12/22/2017 09:58:45 PM received <QueryDict: {u'note_history_id': [u'393']}>
+12/22/2017 09:58:45 PM Executing query select note_title,note_content from notes_master_history where note_history_id=393
+12/22/2017 09:58:45 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right'},)
+12/22/2017 09:58:45 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right'}]
+12/22/2017 09:58:46 PM received <QueryDict: {u'note_history_id': [u'394']}>
+12/22/2017 09:58:46 PM Executing query select note_title,note_content from notes_master_history where note_history_id=394
+12/22/2017 09:58:46 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.'},)
+12/22/2017 09:58:46 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.'}]
+12/22/2017 09:58:48 PM received <QueryDict: {u'note_history_id': [u'396']}>
+12/22/2017 09:58:48 PM Executing query select note_title,note_content from notes_master_history where note_history_id=396
+12/22/2017 09:58:48 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.\nAttempt 3. Creating new note'},)
+12/22/2017 09:58:48 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.\nAttempt 3. Creating new note'}]
+12/22/2017 09:58:50 PM received <QueryDict: {u'note_history_id': [u'400']}>
+12/22/2017 09:58:50 PM Executing query select note_title,note_content from notes_master_history where note_history_id=400
+12/22/2017 09:58:50 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.\nAttempt 3. Creating new note'},)
+12/22/2017 09:58:50 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': 'Attempt 1. Waiting for auto save on top right.\nAttempt 2.\nAttempt 3. Creating new note'}]
+12/22/2017 09:58:52 PM received <QueryDict: {u'note_history_id': [u'401']}>
+12/22/2017 09:58:52 PM Executing query select note_title,note_content from notes_master_history where note_history_id=401
+12/22/2017 09:58:52 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': 'Making changes on top of history.Lets see if this gets traced in version'},)
+12/22/2017 09:58:52 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': 'Making changes on top of history.Lets see if this gets traced in version'}]
+12/22/2017 09:59:36 PM POST received <QueryDict: {u'note_id': [u'243']}>
+12/22/2017 09:59:36 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=243
+12/22/2017 09:59:36 PM Query Result ()
+12/22/2017 09:59:36 PM Executing query update notes_master SET status=0 where note_id=243
+12/22/2017 09:59:36 PM Query Result ()
+12/22/2017 09:59:47 PM POST received <QueryDict: {u'note_id': [u'242']}>
+12/22/2017 09:59:47 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=242
+12/22/2017 09:59:47 PM Query Result ()
+12/22/2017 09:59:47 PM Executing query update notes_master SET status=0 where note_id=242
+12/22/2017 09:59:47 PM Query Result ()
+12/22/2017 09:59:55 PM received <QueryDict: {}>
+12/22/2017 09:59:55 PM Executing query insert into notes_master (note_title,note_content,created_datetime,modified_datetime) values ('NOTE TITLE','',now(),now())
+12/22/2017 09:59:55 PM Query Result ()
+12/22/2017 10:00:02 PM POST received <QueryDict: {u'note_id': [u'244'], u'note_title': [u'SUPER NEW NOTE'], u'note_content': [u'']}>
+12/22/2017 10:00:02 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=244
+12/22/2017 10:00:02 PM Query Result ()
+12/22/2017 10:00:02 PM Executing query update notes_master SET note_title='SUPER NEW NOTE',note_content='',modified_datetime=now() where note_id='244'
+12/22/2017 10:00:02 PM Query Result ()
+12/22/2017 10:00:02 PM received <QueryDict: {u'note_id': [u'244']}>
+12/22/2017 10:00:02 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=244 order by             created_datetime desc 
+12/22/2017 10:00:02 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 29, 55), 'note_history_id': 404L},)
+12/22/2017 10:00:02 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:29:55', 'note_history_id': 404L}]
+12/22/2017 10:00:10 PM POST received <QueryDict: {u'note_id': [u'244'], u'note_title': [u'SUPER NEW NOTE'], u'note_content': [u'This is content of a fresh note created']}>
+12/22/2017 10:00:10 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=244
+12/22/2017 10:00:10 PM Query Result ()
+12/22/2017 10:00:10 PM Executing query update notes_master SET note_title='SUPER NEW NOTE',note_content='This is content of a fresh note created',modified_datetime=now() where note_id='244'
+12/22/2017 10:00:10 PM Query Result ()
+12/22/2017 10:00:10 PM received <QueryDict: {u'note_id': [u'244']}>
+12/22/2017 10:00:10 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=244 order by             created_datetime desc 
+12/22/2017 10:00:10 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 30, 2), 'note_history_id': 405L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 29, 55), 'note_history_id': 404L})
+12/22/2017 10:00:10 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:30:02', 'note_history_id': 405L}, {'created_datetime': '2017-12-23 03:29:55', 'note_history_id': 404L}]
+12/22/2017 10:00:14 PM POST received <QueryDict: {u'note_id': [u'244'], u'note_title': [u'SUPER NEW NOTE'], u'note_content': [u'This is content of a fresh note created']}>
+12/22/2017 10:00:14 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=244
+12/22/2017 10:00:14 PM Query Result ()
+12/22/2017 10:00:14 PM Executing query update notes_master SET note_title='SUPER NEW NOTE',note_content='This is content of a fresh note created',modified_datetime=now() where note_id='244'
+12/22/2017 10:00:14 PM Query Result ()
+12/22/2017 10:00:14 PM received <QueryDict: {u'note_id': [u'244']}>
+12/22/2017 10:00:14 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=244 order by             created_datetime desc 
+12/22/2017 10:00:14 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 30, 10), 'note_history_id': 406L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 30, 2), 'note_history_id': 405L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 29, 55), 'note_history_id': 404L})
+12/22/2017 10:00:14 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:30:10', 'note_history_id': 406L}, {'created_datetime': '2017-12-23 03:30:02', 'note_history_id': 405L}, {'created_datetime': '2017-12-23 03:29:55', 'note_history_id': 404L}]
+12/22/2017 10:00:35 PM received <QueryDict: {u'note_id': [u'244']}>
+12/22/2017 10:00:35 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=244 order by             created_datetime desc 
+12/22/2017 10:00:35 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 30, 10), 'note_history_id': 406L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 30, 2), 'note_history_id': 405L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 29, 55), 'note_history_id': 404L})
+12/22/2017 10:00:35 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:30:10', 'note_history_id': 406L}, {'created_datetime': '2017-12-23 03:30:02', 'note_history_id': 405L}, {'created_datetime': '2017-12-23 03:29:55', 'note_history_id': 404L}]
+12/22/2017 10:00:38 PM received <QueryDict: {u'note_history_id': [u'404']}>
+12/22/2017 10:00:38 PM Executing query select note_title,note_content from notes_master_history where note_history_id=404
+12/22/2017 10:00:38 PM Query Result ({'note_title': 'NOTE TITLE', 'note_content': ''},)
+12/22/2017 10:00:38 PM NOTES HISTORY [{'note_title': 'NOTE TITLE', 'note_content': ''}]
+12/22/2017 10:00:41 PM received <QueryDict: {u'note_history_id': [u'405']}>
+12/22/2017 10:00:41 PM Executing query select note_title,note_content from notes_master_history where note_history_id=405
+12/22/2017 10:00:41 PM Query Result ({'note_title': 'SUPER NEW NOTE', 'note_content': ''},)
+12/22/2017 10:00:41 PM NOTES HISTORY [{'note_title': 'SUPER NEW NOTE', 'note_content': ''}]
+12/22/2017 10:00:43 PM received <QueryDict: {u'note_history_id': [u'406']}>
+12/22/2017 10:00:43 PM Executing query select note_title,note_content from notes_master_history where note_history_id=406
+12/22/2017 10:00:43 PM Query Result ({'note_title': 'SUPER NEW NOTE', 'note_content': 'This is content of a fresh note created'},)
+12/22/2017 10:00:43 PM NOTES HISTORY [{'note_title': 'SUPER NEW NOTE', 'note_content': 'This is content of a fresh note created'}]
+12/22/2017 10:01:00 PM POST received <QueryDict: {u'note_id': [u'244'], u'note_title': [u'SUPER NEW NOTE'], u'note_content': [u'THANK YOU :)']}>
+12/22/2017 10:01:00 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=244
+12/22/2017 10:01:00 PM Query Result ()
+12/22/2017 10:01:00 PM Executing query update notes_master SET note_title='SUPER NEW NOTE',note_content='THANK YOU :)',modified_datetime=now() where note_id='244'
+12/22/2017 10:01:00 PM Query Result ()
+12/22/2017 10:01:00 PM received <QueryDict: {u'note_id': [u'244']}>
+12/22/2017 10:01:00 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=244 order by             created_datetime desc 
+12/22/2017 10:01:00 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 30, 14), 'note_history_id': 407L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 30, 10), 'note_history_id': 406L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 30, 2), 'note_history_id': 405L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 29, 55), 'note_history_id': 404L})
+12/22/2017 10:01:00 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:30:14', 'note_history_id': 407L}, {'created_datetime': '2017-12-23 03:30:10', 'note_history_id': 406L}, {'created_datetime': '2017-12-23 03:30:02', 'note_history_id': 405L}, {'created_datetime': '2017-12-23 03:29:55', 'note_history_id': 404L}]
+12/22/2017 10:01:33 PM POST received <QueryDict: {u'note_id': [u'244'], u'note_title': [u'SUPER NEW NOTE'], u'note_content': [u'THANK YOU :)']}>
+12/22/2017 10:01:33 PM Executing query INSERT INTO notes_master_history(note_id,note_title,note_content,status,            created_datetime) select note_id,note_title,note_content,status,modified_datetime            from notes_master where note_id=244
+12/22/2017 10:01:33 PM Query Result ()
+12/22/2017 10:01:33 PM Executing query update notes_master SET note_title='SUPER NEW NOTE',note_content='THANK YOU :)',modified_datetime=now() where note_id='244'
+12/22/2017 10:01:33 PM Query Result ()
+12/22/2017 10:01:33 PM received <QueryDict: {u'note_id': [u'244']}>
+12/22/2017 10:01:33 PM Executing query select note_history_id,created_datetime from notes_master_history where note_id=244 order by             created_datetime desc 
+12/22/2017 10:01:33 PM Query Result ({'created_datetime': datetime.datetime(2017, 12, 23, 3, 31), 'note_history_id': 408L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 30, 14), 'note_history_id': 407L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 30, 10), 'note_history_id': 406L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 30, 2), 'note_history_id': 405L}, {'created_datetime': datetime.datetime(2017, 12, 23, 3, 29, 55), 'note_history_id': 404L})
+12/22/2017 10:01:33 PM NOTES HISTORY [{'created_datetime': '2017-12-23 03:31:00', 'note_history_id': 408L}, {'created_datetime': '2017-12-23 03:30:14', 'note_history_id': 407L}, {'created_datetime': '2017-12-23 03:30:10', 'note_history_id': 406L}, {'created_datetime': '2017-12-23 03:30:02', 'note_history_id': 405L}, {'created_datetime': '2017-12-23 03:29:55', 'note_history_id': 404L}]

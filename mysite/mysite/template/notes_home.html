@@ -1,0 +1,345 @@
+<!-- Latest compiled and minified CSS -->
+<html>
+<title> Notes App
+</title>
+<head>
+	<!-- Third party imports  -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
+	
+</head>
+<body>
+<div class="spacing"></div>
+<div class="button add" align="center"> <i class="fa fa-plus-circle add_symbol" aria-hidden="true"></i>ADD NOTE</div>
+<div class="spacing"></div>
+<div id="container" class="row">
+	{% for each_note in notes %}
+	<div class="content-box col-sm-4" id="note_{{each_note.note_id}}"> 
+		<div class="title" >
+			<i class="fa fa-trash-o delete_symbol" aria-hidden="true"></i>
+			<i class="fa fa-window-maximize maximize" aria-hidden="true"></i>
+			<i class="fa fa-window-minimize minimize" aria-hidden="true"></i>
+			<textarea class="text_title" id="title_{{each_note.note_id}}" maxlength="18">{{each_note.note_title}}</textarea>
+		</div> 
+		<div class="content ">
+			<div class="row">
+				<div class="col-sm-12 area">
+				<textarea class="text_content" id="content_{{each_note.note_id}}">{{each_note.note_content}}</textarea>
+				</div>
+				<div class="col-sm-3 history" id="history_{{each_note.note_id}}">
+					<div>VERSION HISTORY</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+<div class="modal">Auto Saving</div>
+<div id="dialog" title="AUTOSAVING ...">Your recent changes are being saved</div>
+</body>
+<script>
+$(document).ready(function(){
+
+	$body = $("body");
+	/* Loading modal on Ajax call wait time  */
+	$(document).on({
+	    ajaxStart: function() { $body.addClass("loading");    },
+	     ajaxStop: function() { $body.removeClass("loading"); }    
+	}); 
+	 
+	/* Action on Maximize Notes */
+	$(document).on('click', '.maximize', function(){
+		
+		note_id=$(this).parents('.content-box').attr('id').replace('note_','')
+		$(this).parents('.content-box').addClass("col-sm-12");
+		$(this).parents('.content-box').removeClass("col-sm-4");
+		$(this).hide()
+		$(this).siblings('.minimize').show()
+		$('#content_'+note_id).parents('.area').removeClass("col-sm-12");
+		$('#content_'+note_id).parents('.area').addClass("col-sm-9");
+		$('#content_'+note_id).parents('.area').css('border-right','1px double #333')
+		$('#history_'+note_id).show();
+		get_history_ids(note_id)
+	});
+	
+	/* Fetches historical versions of a note */
+	function get_history_ids(note_id){
+		//Ajax call to fetch versions of a note based on note id
+		$.get("/notes/view_history?note_id="+note_id,
+				function(data,status){
+				var data=$.parseJSON(data)
+				$('#history_'+note_id).children().remove()
+				entry="<div> VERSION HISTORY</div>"
+				for (i=0;i<data.length;i++)
+					{
+						entry=entry+'<div> <a href="#" class="history_content_link" id="history_link_'+ data[i].note_history_id +'">'+ data[i].created_datetime+'</a></div>'
+						
+					}
+				$('#history_'+note_id).append(entry)
+			})
+	}
+	
+	/* Action on clicking version links */
+	$(document).on('click','.history_content_link', function(){
+		note_id=$(this).parents('.history').attr('id').replace('history_','')
+		note_history_id=$(this).attr('id').replace('history_link_','')
+		get_history_content(note_id,note_history_id)
+	
+	});
+	
+	/* Fetches a particular notes' version history details */
+	function get_history_content(note_id,note_history_id){
+		$.get("/notes/get_history_content?note_history_id="+note_history_id,
+				function(data,status){
+				var data=$.parseJSON(data)
+				note_content=data[0].note_content
+				note_title=data[0].note_title
+				$('#title_'+note_id).val(note_title)
+				$('#content_'+note_id).val(note_content)
+			});
+	}
+	
+	/* Action on Minimize Notes */
+	$(document).on('click', '.minimize', function(){
+		note_id=$(this).parents('.content-box').attr('id').replace('note_','')
+		$(this).parents('.content-box').removeClass("col-sm-12");
+		$(this).parents('.content-box').addClass("col-sm-4");
+		$('#content_'+note_id).parents('.area').addClass("col-sm-12");
+		$('#content_'+note_id).parents('.area').removeClass("col-sm-9");
+		$('#content_'+note_id).parents('.area').css('border-right','')
+		$(this).hide()
+		$(this).siblings('.maximize').show()
+		$('#history_'+note_id).hide();
+	});
+	
+	/* Action to be performed on Clikcing Add Notes  */ 
+	$(document).on('click', '.add', function(){
+		// Make an ajax call to make an entry in DB and fetch the note_id
+		$.get("/notes/get_note_id",
+			function(data,status){
+			var data=$.parseJSON(data)
+			id =data.note_id
+		}).complete(function(){
+			//On Ajax completion, set the note id and display Note
+			var box='<div class="content-box col-sm-4" id="note_'+ id +'"> <div class="title" ><i class="fa fa-trash-o delete_symbol" aria-hidden="true"></i><i class="fa fa-window-maximize maximize" aria-hidden="true"></i><i class="fa fa-window-minimize minimize" aria-hidden="true"></i><textarea class="text_title" id="title_'+ id +'" maxlength="18">NOTE TITLE</textarea></div> <div class="content "><div class="row"><div class="col-sm-12 area"><textarea class="text_content" id="content_'+ id +'" placeholder="Enter Note content here"></textarea></div><div class="col-sm-3 history" id="history_'+ id +'"><div>VERSION HISTORY</div><div>history</div></div></div></div></div>'
+			$("#container").append(box);
+			
+		});
+		
+	});	 
+	
+	/* Auto Save when user types the Notes */
+	var timeoutId;
+	var note_id;
+	var old_title;
+	var old_content;
+	$(document).on('input', '.text_title,.text_content', function(){
+		  note_id=$(this).parents('.content-box').attr('id').replace('note_','')
+		  old_title=$.trim($('#title_'+note_id).val())
+		  old_content=$.trim($('#content_'+note_id).val())
+		  clearTimeout(timeoutId);
+		  timeoutId = setTimeout(function() {
+							// User is inactive for 5 seconds.Saving note 
+			 				 $.notify("Auto Saving ...");
+			 				 update_db(note_id,old_title,old_content)
+						}, 5000);
+	}).on('change','.content-box', function() {
+		// User is moving out of Note area. Saving note
+		note_title=$.trim($('#title_'+note_id).val())
+		note_content=$.trim($('#content_'+note_id).val())
+		console.log("User moved out.Saving to DB")
+		update_db(note_id,note_title,note_content)
+	});
+	
+	/* Function to update notes */
+	function update_db(note_id,note_title,note_content){
+		$.post("/notes/update",{"note_id":note_id,"note_title":note_title,"note_content":note_content},
+				function(data,status){
+			}).complete(function(){
+				get_history_ids(note_id)
+			});
+	}
+	
+	/* Modal window during auto save */
+	function show_modal(){
+		$body.addClass("loading");
+		setTimeout(function(){
+			$body.removeClass("loading");
+			}, 2000);
+	}
+	/* Action to be performed on Clikcing Delete Notes  */
+	$(document).on('click', '.delete_symbol', function(){
+		note_id=$(this).parents('.content-box').attr('id').replace('note_','')
+		$.post("/notes/delete",{"note_id":note_id},
+				function(data,status){
+				$('#note_'+note_id).remove()
+			}).complete(function(){
+				
+			});
+	});
+	
+	/* Upper case for Note title */
+	$(document).on('keyup', '.text_title', function(){
+		$(this).val($(this).val().toUpperCase());
+	});
+	
+ 
+});
+</script>
+<style>
+body{
+	background-color:#A16E62;
+}
+
+#dialog{
+	display:none;
+}
+.history{
+	display:none;
+	overflow-y: auto;
+	max-height:280px;
+	
+}
+.text_title {
+	border: none;
+	background-color:transparent;
+	resize:none;
+	width: 250px;
+	height: 30px;
+	outline:none;
+	overflow:hidden;
+}
+.text_content {
+	border: none;
+	background-color:transparent;
+	resize:none;
+	width: 100%;
+	height: 100%;
+	outline:none;
+}
+.spacing{
+	padding:20px;
+}
+.add_symbol,.delete_symbol,.maximize,.minimize{
+	float:right;
+	cursor:pointer;
+	
+}
+.add_symbol{
+	
+	font-size:30px;
+}
+.maximize{
+	color:green;
+	font-size:30px;
+	padding-right:10px;
+}
+.minimize{
+	color:green;
+	display:none;
+	font-size:20px;
+	padding-right:10px;
+}
+.delete_symbol{
+	color:#f46b42;
+	font-size:30px;
+}
+.content-box{
+	padding-left:80px;
+	padding-bottom:40px;
+	padding-right:80px;
+}
+.content-box .content {
+    padding: 10px;
+    font-size: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid gray;
+    color: #3385FF;
+    height:300px;
+    background-color:white;
+}
+.content-box .title {
+    line-height:30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background:gray;
+    font-size:18px;
+    font-weight:bold;
+    font-family:verdana;
+    display:block;
+    color:black;
+    display:block;
+    padding:10px;
+    border: 1px solid gray;
+    border-bottom:none;
+    background-color:#FEFCB1;
+}
+
+.button {
+   border-top: 1px solid #96d1f8;
+   background: #65a9d7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+   background: -o-linear-gradient(top, #3e779d, #65a9d7);
+   padding: 13px 26px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 19px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   width:200px;
+   margin:auto;
+   }
+.button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   cursor:pointer;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+    text-align: center;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+</style>
