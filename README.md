@@ -17,6 +17,7 @@ Code Interactions:
 	3. NOTES_HANDLER,py - Based on query arguments,notes_handler's methods are called
 	4. NOTES_DAO - Data access object which talks to DB
 	5. TRANSACTIONAL_MANAGER.py - Initiates connectivity to DB and holds the connection object
+	6. TESTS.py - Unit Test cases to check the functionality of code with changing versions
  
 
 INFRASTRUCTURE/RESOURCES:
