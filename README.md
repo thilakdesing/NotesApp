@@ -18,7 +18,7 @@ Code Interactions:
 	4. NOTES_DAO - Data access object which talks to DB
 	5. TRANSACTIONAL_MANAGER.py - Initiates connectivity to DB and holds the connection object
 	6. TESTS.py - Unit Test cases to check the functionality of code with changing versions
- 
+ 	7. NOTES.log - Log file to trace code traversal, and facilitate debugging
 
 INFRASTRUCTURE/RESOURCES:
 
